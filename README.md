@@ -1,8 +1,12 @@
 # Find Component In Prefabs
 
-desc
+特定コンポーネントが付いているprefabを探すエディタ拡張です
 
 ## Install
+
+### OpenUPM
+
+See [OpenUPM page](https://openupm.com/packages/net.narazaka.unity.find-component-in-prefabs/)
 
 ### VCC用インストーラーunitypackageによる方法（おすすめ）
 
@@ -16,7 +20,7 @@ https://github.com/Narazaka/FindComponentInPrefabs/releases/latest から `net.n
 
 ## Usage
 
-TODO
+Tools→Find Component In Prefabsからウインドウを開いて使う
 
 ## License
 
