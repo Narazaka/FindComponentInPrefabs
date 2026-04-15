@@ -135,7 +135,7 @@ public class FindComponentInPrefabs : EditorWindow
     {
         componentTypes = System.AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(assembly => assembly.GetTypes())
-            .Where(type => type.IsSubclassOf(typeof(Component)) && !type.IsAbstract)
+            .Where(type => type.IsSubclassOf(typeof(Component)))
             .OrderBy(type => type.Name)
             .ToArray();
     }
