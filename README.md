@@ -22,6 +22,10 @@ https://github.com/Narazaka/FindComponentInPrefabs/releases/latest から `net.n
 
 Tools→Find Component In Prefabsからウインドウを開いて使う
 
+## Changelog
+
+- 1.1.0: allow abstract
+
 ## License
 
 [Zlib License](LICENSE.txt)

@@ -1,6 +1,6 @@
 {
   "name": "net.narazaka.unity.find-component-in-prefabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Find Component In Prefabs",
   "description": "Find Component In Prefabs",
   "author": {
@@ -8,6 +8,8 @@
     "url": "https://github.com/Narazaka"
   },
   "license": "Zlib",
+  "documentationUrl": "https://github.com/Narazaka/FindComponentInPrefabs#readme",
+  "changelogUrl": "https://github.com/Narazaka/FindComponentInPrefabs#changelog",
   "type": "tool",
   "url" : "https://github.com/Narazaka/FindComponentInPrefabs.git",
   "unity": "2022.3"
