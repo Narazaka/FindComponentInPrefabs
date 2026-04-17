@@ -17,6 +17,7 @@ public class FindComponentInPrefabs : EditorWindow
     bool showFullName;
     bool searchFullName;
     string typeSearchName = string.Empty;
+    bool allowAbstract = false;
     System.Type targetComponentType;
     System.Type[] componentTypes = null;
     System.Type[] filteredComponentTypes = null;
@@ -53,6 +54,9 @@ public class FindComponentInPrefabs : EditorWindow
         EditorGUI.BeginChangeCheck();
         searchFullName = EditorGUILayout.Toggle("Search Full Name", searchFullName);
         var searchFullNameChanged = EditorGUI.EndChangeCheck();
+        EditorGUI.BeginChangeCheck();
+        allowAbstract = EditorGUILayout.Toggle("Allow Abstract", allowAbstract);
+        var allowAbstractChanged = EditorGUI.EndChangeCheck();
 
         if (componentTypes == null)
         {
@@ -62,15 +66,16 @@ public class FindComponentInPrefabs : EditorWindow
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             typeSearchName = EditorGUILayout.TextField("Type Search Name", typeSearchName);
-            if (check.changed || searchFullNameChanged || filteredComponentTypes == null)
+            if (check.changed || searchFullNameChanged || allowAbstractChanged || filteredComponentTypes == null)
             {
+                var query = componentTypes.Where(t => allowAbstract || !t.IsAbstract);
                 if (searchFullName)
                 {
-                    filteredComponentTypes = componentTypes.Where(t => t.FullName.Contains(typeSearchName, System.StringComparison.OrdinalIgnoreCase)).ToArray();
+                    filteredComponentTypes = query.Where(t => t.FullName.Contains(typeSearchName, System.StringComparison.OrdinalIgnoreCase)).ToArray();
                 }
                 else
                 {
-                    filteredComponentTypes = componentTypes.Where(t => t.Name.Contains(typeSearchName, System.StringComparison.OrdinalIgnoreCase)).ToArray();
+                    filteredComponentTypes = query.Where(t => t.Name.Contains(typeSearchName, System.StringComparison.OrdinalIgnoreCase)).ToArray();
                 }
             }
         }
